@@ -1,0 +1,116 @@
+{
+  "summary": {
+    "health_score": 54,
+    "business_type": "Entertainment web application / satirical shopping simulator",
+    "top_findings": [
+      "robots.txt, sitemap.xml, llms.txt, and AI discovery paths return the SPA HTML with 200 text/html",
+      "Unknown paths return 200 instead of 404",
+      "Primary content is client-rendered and thin in the initial HTML",
+      "Production canonical and OG URLs must replace localhost",
+      "Initial JavaScript bundle is 572.46 kB minified"
+    ],
+    "quick_wins": [
+      "Add valid robots.txt and sitemap.xml",
+      "Configure real 404 handling",
+      "Add production origin metadata at deployment",
+      "Add a crawlable explanation of the simulator",
+      "Code-split heavy views and modals"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 38,
+      "what_works": ["Title, description, canonical, Open Graph, Twitter metadata, and viewport are present"],
+      "findings": [
+        {"title":"Invalid discovery endpoints","severity":"Critical","description":"/robots.txt, /sitemap.xml, /llms.txt, and /.well-known/ai-plugin.json return 200 text/html containing the app shell.","recommendation":"Serve real files with correct content types and validate them in production."},
+        {"title":"Soft-404 unknown paths","severity":"Critical","description":"/nonexistent-seo-check returns 200 text/html and the SPA shell.","recommendation":"Return a real 404 for unknown paths while preserving client routing only for known app routes."},
+        {"title":"Client-rendered primary content","severity":"High","description":"The raw document contains an empty root plus noscript fallback; core catalog content is rendered by React.","recommendation":"Use SSR, SSG, or a richer static fallback for the homepage and public content."},
+        {"title":"Localhost metadata","severity":"High","description":"Static canonical and og:url currently point to http://localhost:3001/.","recommendation":"Inject the production origin during deployment."},
+        {"title":"Missing security headers","severity":"Medium","description":"No CSP, HSTS, X-Content-Type-Options, Referrer-Policy, or Permissions-Policy was observed on the local response.","recommendation":"Set security headers at the production server or hosting layer."}
+      ]
+    },
+    {
+      "name":"Content Quality",
+      "score":68,
+      "what_works":["Distinctive original concept", "Clear fictional/$0 framing", "Readable short-form product copy"],
+      "findings":[
+        {"title":"Limited explanatory content","severity":"Medium","description":"Rendered homepage contains about 424 words, but the core explanation is brief and mostly UI labels.","recommendation":"Add crawlable copy explaining what the simulator is, how fantasy pricing works, and that no real products are sold."},
+        {"title":"Weak trust and freshness signals","severity":"Low","description":"No owner/about details, update date, contact link, or catalog freshness signal is visible.","recommendation":"Add lightweight About, Privacy, Contact, and Last updated information."},
+        {"title":"Moderate AI citability","severity":"Medium","description":"The concept is clear, but there are few self-contained factual passages outside interactive controls.","recommendation":"Add concise answer-style paragraphs for simulator, pricing, sharing, and fictional-product questions."}
+      ]
+    },
+    {
+      "name":"On-Page SEO",
+      "score":72,
+      "what_works":["Title targets Fake Shopping Simulator", "Description communicates the $0 premise", "One rendered homepage H1", "Four crawlable internal navigation links"],
+      "findings":[
+        {"title":"State-dependent route content","severity":"High","description":"The single / URL can render Play, Cart, Worlds, Game, receipt, and remix states without distinct crawlable URLs.","recommendation":"Use route-level URLs for public experiences or mark stateful query variants noindex with intentional canonicals."},
+        {"title":"No external authority links","severity":"Low","description":"No external links were rendered on the homepage.","recommendation":"Add authoritative links only where they clarify privacy, fictional commerce, or product provenance; avoid forced links."}
+      ]
+    },
+    {
+      "name":"Schema / Structured Data",
+      "score":80,
+      "what_works":["Valid JSON-LD syntax", "WebApplication type", "Zero-price Offer accurately describes the simulator"],
+      "findings":[
+        {"title":"Schema URL is missing","severity":"Medium","description":"WebApplication JSON-LD has no url property and the static URL is localhost.","recommendation":"Add the absolute production URL, image or screenshot, and a real provider only if one exists."},
+        {"title":"Do not mark fictional items as products","severity":"Info","description":"The catalog is entertainment content rather than real purchasable inventory.","recommendation":"Keep WebApplication schema and avoid Product markup for fictional items."}
+      ]
+    },
+    {
+      "name":"Performance",
+      "score":58,
+      "what_works":["Images reserve layout space in ProductCard", "Below-fold product images use lazy loading", "No obvious hero image LCP blocker"],
+      "findings":[
+        {"title":"Large initial JavaScript chunk","severity":"High","description":"Production build emits a 572.46 kB minified JavaScript chunk, 154.01 kB gzip.","recommendation":"Lazy-load Worlds, Cart, Game, remix, modal, and challenge modules with route/component splitting."},
+        {"title":"Font and third-party loading risk","severity":"Medium","description":"Two variable Google font families are loaded from an external stylesheet.","recommendation":"Self-host or subset fonts, use font-display, and preload only the critical face."},
+        {"title":"CWV unavailable locally","severity":"Info","description":"LCP, INP, and CLS could not be measured against localhost or CrUX.","recommendation":"Measure a production deployment with Lighthouse and real-user field data."}
+      ]
+    },
+    {
+      "name":"Images",
+      "score":64,
+      "what_works":["Rendered product images have descriptive alt text", "Product cards use lazy loading", "Stable fixed media containers are present"],
+      "findings":[
+        {"title":"Remote image dependency","severity":"Medium","description":"Product imagery is served from Googleusercontent and Unsplash URLs.","recommendation":"Host optimized WebP/AVIF derivatives locally or through a controlled image CDN."},
+        {"title":"Image dimensions vary by state","severity":"Medium","description":"The Play product cards include dimensions in source, but the persisted Cart view rendered images without width/height attributes.","recommendation":"Apply width, height, and sizes consistently to every image component."}
+      ]
+    },
+    {
+      "name":"AI Search Readiness",
+      "score":44,
+      "what_works":["Clear application identity", "Structured heading hierarchy when rendered", "Useful title and description"],
+      "findings":[
+        {"title":"No usable llms.txt or agent discovery file","severity":"High","description":"The requested endpoints return the SPA shell instead of Markdown or JSON.","recommendation":"Serve valid optional discovery files and an explicit crawler policy if they are part of the publishing strategy."},
+        {"title":"Low raw citability","severity":"High","description":"Non-JavaScript agents receive almost no product or feature content.","recommendation":"Prerender the core explanation, representative catalog, and feature descriptions."},
+        {"title":"No external brand signals","severity":"Medium","description":"No sameAs, organization identity, author, citations, or public authority signals were found.","recommendation":"Add verifiable brand identity and appropriate public profiles over time."}
+      ]
+    },
+    {
+      "name":"Search Experience",
+      "score":63,
+      "what_works":["Strong tool/page-type fit for fake shopping simulator intent", "Prominent play CTA", "Cart, surprise, challenge, and sharing workflows"],
+      "findings":[
+        {"title":"Expectation mismatch for real shopping queries","severity":"Medium","description":"Luxury product names and prices resemble commerce content, but nothing is actually sold.","recommendation":"State prominently in crawlable copy that this is a fictional simulator with no purchases."},
+        {"title":"Social loop is under-explained","severity":"Low","description":"Challenge and remix behavior is available but not fully explained in indexable content.","recommendation":"Add a short section describing cart sharing and friend challenges."}
+      ]
+    },
+    {
+      "name":"Visual / Accessibility",
+      "score":92,
+      "what_works":["Desktop and mobile layouts render cleanly", "No horizontal overflow observed", "Primary CTA and H1 visible", "Controls have accessible names"],
+      "findings":[
+        {"title":"Mobile safe-area polish","severity":"Low","description":"Fixed bottom navigation sits at the viewport edge on physical iOS devices.","recommendation":"Add env(safe-area-inset-bottom) padding to the bottom navigation."},
+        {"title":"Audit limitation","severity":"Info","description":"Modal focus trapping and escape behavior were not fully verified by the local browser audit.","recommendation":"Add automated keyboard and focus tests for modal workflows."}
+      ]
+    }
+  ],
+  "action_plan": {"phases":[
+    {"name":"Phase 1: Critical Fixes","timeframe":"Week 1","items":["Serve valid robots.txt and sitemap.xml", "Return 404 for unknown paths", "Replace localhost metadata with deployment origin"]},
+    {"name":"Phase 2: High-Impact Improvements","timeframe":"Weeks 2-3","items":["Prerender homepage SEO content", "Code-split heavy views and modals", "Add crawlable simulator explanation and trust copy", "Normalize image dimensions across all views"]},
+    {"name":"Phase 3: Content & Authority","timeframe":"Month 2","items":["Add About, Privacy, Contact, and update signals", "Expand sharing/challenge explanations", "Add real organization and sameAs data if applicable"]},
+    {"name":"Phase 4: Monitoring & Iteration","timeframe":"Ongoing","items":["Run production Lighthouse and CrUX checks", "Validate schema and discovery files after deployment", "Monitor soft-404s, index coverage, and bundle size"]}
+  ]},
+  "artifacts": {"findings_dir":"findings/", "screenshots_dir":"screenshots/", "tooling_limitations":["Lighthouse/agentic runtime blocked localhost", "render_page.py produced no usable Windows JSON output", "CrUX and live SERP data unavailable for localhost"]}
+}

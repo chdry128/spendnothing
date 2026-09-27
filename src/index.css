@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Bodoni Moda", Georgia, serif;
+  --font-sans: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --color-brand-primary: #ba0900;
+  --color-brand-vermilion: #ff3823;
+  --color-brand-mint: #006c49;
+  --color-brand-mint-light: #6cf8bb;
+  --color-brand-mint-container: #d1fae5;
+  --color-brand-ink: #1a1c1a;
+  --color-brand-surface: #faf9f6;
+  --color-brand-card: #ffffff;
+  --color-brand-border: #e4e2dc;
+  --color-brand-muted: #5d5c5b;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #faf9f6;
+    color: #1a1c1a;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-bodoni {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom scrollbar hiding utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Tactile 3D paper offset shadows */
+.shadow-tactile {
+  box-shadow: 2px 2px 0px #1a1c1a;
+}
+.shadow-tactile-lg {
+  box-shadow: 4px 4px 0px #1a1c1a;
+}
+.shadow-tactile-sm {
+  box-shadow: 1px 1px 0px #1a1c1a;
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  nav.fixed.bottom-0 {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

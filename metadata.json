@@ -1,0 +1,6 @@
+{
+  "name": "Fake Shopping: Spend Nothing",
+  "description": "Indulge every irrational financial urge with absolute impunity. The high-fashion satirical shopping simulator where everything costs $0.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
