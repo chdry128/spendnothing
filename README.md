@@ -2,9 +2,9 @@
 <img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
 
-# Fake Shopping
+# Unlimited Shopping
 
-Fake Shopping is a Vite + React single-page application. The production build is configured for both Cloudflare Pages and Cloudflare Workers Static Assets.
+Unlimited Shopping is a Vite + React single-page application. The production build is configured for both Cloudflare Pages and Cloudflare Workers Static Assets.
 
 ## Run Locally
 
@@ -36,7 +36,7 @@ npm run deploy:worker
 Set `VITE_SITE_URL` in the deployment environment, for example:
 
 ```bash
-$env:VITE_SITE_URL = "https://fake-shopping.example.com"
+$env:VITE_SITE_URL = "https://unlimited-shopping.example.com"
 npm run deploy:worker
 ```
 

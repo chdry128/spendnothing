@@ -45,7 +45,7 @@ export function updateDocumentMetaTags(remixData: DecodedRemixCart | null): void
     const topItemTitle = topItem?.title || 'Ultra Luxury Artifact';
     const topItemImage = topItem?.image || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80';
 
-    const title = `Can you beat my cart? (${compactTotal} for $0) — Fake Shopping`;
+    const title = `Can you beat my cart? (${compactTotal} for $0) — Unlimited Shopping`;
     const description = `Challenged by ${remixData.creatorHandle} to beat their ${formattedTotal} fantasy cart featuring ${topItemTitle}. Indulge with $0 real cost!`;
 
     document.title = title;
@@ -69,7 +69,7 @@ export function updateDocumentMetaTags(remixData: DecodedRemixCart | null): void
     setMetaTag('meta[name="twitter:image"]', 'content', topItemImage);
   } else {
     // Reset to default
-    const defaultTitle = 'Fake Shopping Simulator | Spend Nothing';
+    const defaultTitle = 'Unlimited Shopping Simulator | Spend Nothing';
     const defaultDesc =
       'Build an absurd luxury cart, challenge your friends, and indulge every irrational shopping urge in a satirical $0 fantasy simulator.';
 

@@ -165,7 +165,7 @@ export const ProductDetailModal: React.FC = () => {
               </div>
               <div className="flex flex-col items-end">
                 <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#ba0900]">
-                  Fake Shopping Price
+                  Unlimited Shopping Price
                 </span>
                 <div className="flex items-baseline gap-1">
                   <span className="font-bodoni font-black text-3xl text-[#ba0900] leading-none">

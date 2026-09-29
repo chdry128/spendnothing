@@ -143,7 +143,7 @@ export const WorldsView: React.FC = () => {
           </p>
           <div className="mt-2 text-right">
             <span className="text-[10px] font-bold text-[#5d5c5b] uppercase">
-              — Fake Shopping Journal, Issue No. 12
+              — Unlimited Shopping Journal, Issue No. 12
             </span>
           </div>
         </div>

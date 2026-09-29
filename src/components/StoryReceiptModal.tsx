@@ -80,7 +80,7 @@ export const StoryReceiptModal: React.FC<StoryReceiptModalProps> = ({ isOpen, on
 
       const shared = await triggerNativeShare(
         {
-          title: 'Can you beat my cart? — Fake Shopping',
+          title: 'Can you beat my cart? — Unlimited Shopping',
           text: `Can you beat my cart? I just spent ${formatPrice(
             currentReceipt.subtotalMsrp,
             currency
@@ -102,7 +102,7 @@ export const StoryReceiptModal: React.FC<StoryReceiptModalProps> = ({ isOpen, on
     } catch {
       await triggerNativeShare(
         {
-          title: 'Can you beat my cart? — Fake Shopping',
+          title: 'Can you beat my cart? — Unlimited Shopping',
           text: `Can you beat my cart? I just spent ${formatPrice(
             currentReceipt.subtotalMsrp,
             currency
@@ -128,7 +128,7 @@ export const StoryReceiptModal: React.FC<StoryReceiptModalProps> = ({ isOpen, on
       `Can you beat my cart? I just spent ${formatPrice(
         currentReceipt.subtotalMsrp,
         currency
-      )} for $0.00 REAL on Fake Shopping!`
+      )} for $0.00 REAL on Unlimited Shopping!`
     );
     showToast('Opening Facebook share...', 'Challenge Ready');
   };
@@ -212,7 +212,7 @@ export const StoryReceiptModal: React.FC<StoryReceiptModalProps> = ({ isOpen, on
                 F
               </div>
               <span className="font-bodoni font-bold text-lg uppercase tracking-tight text-[#1a1c1a]">
-                Fake Shopping
+                Unlimited Shopping
               </span>
             </div>
             <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ba0900]">
@@ -245,10 +245,20 @@ export const StoryReceiptModal: React.FC<StoryReceiptModalProps> = ({ isOpen, on
               Acquisitions ({currentReceipt.items.length})
             </span>
             {currentReceipt.items.slice(0, 4).map(({ product, quantity }) => (
-              <div key={product.id} className="flex justify-between items-center text-[11px]">
-                <span className="font-semibold text-[#1a1c1a] truncate max-w-[170px]">
-                  {quantity}x {product.title}
-                </span>
+              <div key={product.id} className="flex justify-between items-center gap-2 text-[11px]">
+                <div className="flex items-center gap-2 min-w-0">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    width={28}
+                    height={28}
+                    loading="lazy"
+                    className="w-7 h-7 rounded-md object-cover border border-[#1a1c1a]/15 shrink-0"
+                  />
+                  <span className="font-semibold text-[#1a1c1a] truncate">
+                    {quantity}x {product.title}
+                  </span>
+                </div>
                 <span className="font-bodoni font-bold text-[#ba0900]">{formatRealCost(currency)}</span>
               </div>
             ))}

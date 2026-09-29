@@ -120,7 +120,7 @@ export const ShareSheetModal: React.FC<ShareSheetModalProps> = ({
 
       const shared = await triggerNativeShare(
         {
-          title: 'Can you beat my cart? — Fake Shopping',
+          title: 'Can you beat my cart? — Unlimited Shopping',
           text: `Can you beat my cart? I just spent ${formatPrice(
             totalMsrp,
             currency
@@ -144,7 +144,7 @@ export const ShareSheetModal: React.FC<ShareSheetModalProps> = ({
       // Fallback to text & URL native share
       await triggerNativeShare(
         {
-          title: 'Can you beat my cart? — Fake Shopping',
+          title: 'Can you beat my cart? — Unlimited Shopping',
           text: `Can you beat my cart? I just spent ${formatPrice(
             totalMsrp,
             currency
@@ -171,7 +171,7 @@ export const ShareSheetModal: React.FC<ShareSheetModalProps> = ({
       `Can you beat my cart? I just spent ${formatPrice(
         totalMsrp,
         currency
-      )} for $0.00 REAL on Fake Shopping!`
+      )} for $0.00 REAL on Unlimited Shopping!`
     );
     showToast('Opening Facebook share dialog...', 'Challenge Ready');
   };

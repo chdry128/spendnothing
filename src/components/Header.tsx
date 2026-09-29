@@ -42,12 +42,12 @@ export const Header: React.FC = () => {
             >
               {/* Distinctive Logo Icon matching Google Stitch mockups */}
               <div className="relative w-8 h-8 rounded-lg bg-[#1a1c1a] flex items-center justify-center shadow-sm">
-                <span className="text-white font-extrabold text-base tracking-tighter font-sans">F</span>
+                <span className="text-white font-extrabold text-base tracking-tighter font-sans">U</span>
                 <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-[#ba0900] rounded-full border-2 border-[#1a1c1a] animate-pulse"></span>
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-bodoni font-bold text-lg uppercase tracking-tight text-[#1a1c1a]">
-                  Fake Shopping
+                  Unlimited Shopping
                 </span>
                 <span className="text-[10px] uppercase font-bold tracking-widest text-[#ba0900]">
                   Spend Nothing

@@ -101,7 +101,7 @@ export const CheckoutConfirmationView: React.FC<CheckoutConfirmationViewProps> =
 
       const shared = await triggerNativeShare(
         {
-          title: 'Can you beat my cart? — Fake Shopping',
+          title: 'Can you beat my cart? — Unlimited Shopping',
           text: `Can you beat my cart? I just spent ${formatPrice(
             currentReceipt.subtotalMsrp,
             currency
@@ -123,7 +123,7 @@ export const CheckoutConfirmationView: React.FC<CheckoutConfirmationViewProps> =
     } catch {
       await triggerNativeShare(
         {
-          title: 'Can you beat my cart? — Fake Shopping',
+          title: 'Can you beat my cart? — Unlimited Shopping',
           text: `Can you beat my cart? I just spent ${formatPrice(
             currentReceipt.subtotalMsrp,
             currency
@@ -149,7 +149,7 @@ export const CheckoutConfirmationView: React.FC<CheckoutConfirmationViewProps> =
       `Can you beat my cart? I just spent ${formatPrice(
         currentReceipt.subtotalMsrp,
         currency
-      )} for $0.00 REAL on Fake Shopping!`
+      )} for $0.00 REAL on Unlimited Shopping!`
     );
     showToast('Opening Facebook share...', 'Challenge Ready');
   };
@@ -310,14 +310,24 @@ export const CheckoutConfirmationView: React.FC<CheckoutConfirmationViewProps> =
           {/* Line items list */}
           <div className="flex flex-col gap-3">
             {currentReceipt.items.map(({ product, quantity }) => (
-              <div key={product.id} className="flex justify-between items-start text-xs">
-                <div className="flex flex-col min-w-0 pr-2">
+              <div key={product.id} className="flex justify-between items-center gap-3 text-xs">
+                <div className="flex items-center gap-3 min-w-0 pr-2">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    width={48}
+                    height={48}
+                    loading="lazy"
+                    className="w-12 h-12 rounded-lg object-cover border border-[#1a1c1a]/15 shrink-0"
+                  />
+                  <div className="flex flex-col min-w-0">
                   <span className="font-bold text-[#1a1c1a] truncate">
                     {quantity}x {product.title}
                   </span>
                   <span className="text-[11px] text-[#5d5c5b]">
                     {product.subtitle}
                   </span>
+                  </div>
                 </div>
                 <div className="flex flex-col items-end shrink-0">
                   <span className="text-[10px] line-through text-[#926f69]">
@@ -635,7 +645,7 @@ export const CheckoutConfirmationView: React.FC<CheckoutConfirmationViewProps> =
           "Money isn't real anyway, but this dopamine certainly is."
         </p>
         <span className="text-[10px] font-bold text-[#5d5c5b] block mt-1 uppercase tracking-widest">
-          — The Fake Shopping Decree
+          — The Unlimited Shopping Decree
         </span>
       </div>
     </div>

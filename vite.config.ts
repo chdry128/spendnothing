@@ -22,13 +22,13 @@ function seoFilesPlugin(): Plugin {
     },
     '/llms.txt': {
       type: 'text/plain',
-      content: `# Fake Shopping\n\n> Fake Shopping is a satirical fantasy-shopping simulator. Users build absurd carts, pay nothing, and can challenge friends.\n\n## Important context\n- No real products are sold.\n- All prices and product descriptions are fictional.\n- The application is free to use.\n\n## Homepage\n- ${getSiteUrl()}/\n`,
+      content: `# Unlimited Shopping\n\n> Unlimited Shopping is a satirical fantasy-shopping simulator. Users build absurd carts, pay nothing, and can challenge friends.\n\n## Important context\n- No real products are sold.\n- All prices and product descriptions are fictional.\n- The application is free to use.\n\n## Homepage\n- ${getSiteUrl()}/\n`,
     },
     '/.well-known/ai-plugin.json': {
       type: 'application/json',
       content: JSON.stringify({
         schema_version: 'v1',
-        name_for_human: 'Fake Shopping',
+        name_for_human: 'Unlimited Shopping',
         name_for_model: 'fake_shopping',
         description_for_human: 'A satirical fantasy-shopping simulator where every purchase costs $0.',
         description_for_model: 'Use this site as an entertainment simulator. No real products are sold and no real purchases occur.',
@@ -136,7 +136,7 @@ function dynamicOpenGraphPlugin(): Plugin {
             : `$${total}`;
 
         const fullFormatted = `$${total.toLocaleString('en-US')}`;
-        const title = `Can you beat my cart? (${formattedTotal} for $0) — Fake Shopping`;
+        const title = `Can you beat my cart? (${formattedTotal} for $0) — Unlimited Shopping`;
         const description = `Challenged by ${creator} to out-spend their ${fullFormatted} fantasy cart featuring ${topProduct?.title || 'pure luxury'}. Indulge with $0 billed!`;
         const image =
           topProduct?.image ||

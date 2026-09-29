@@ -18,7 +18,7 @@ export interface StoryReceiptDrawOptions {
 /**
  * Draws a sharp, high-resolution 1080x1920 (9:16) Instagram / TikTok Story card onto an HTML Canvas.
  */
-export function drawStoryReceipt(
+export async function drawStoryReceipt(
   ctx: CanvasRenderingContext2D,
   {
     receipt,
@@ -26,9 +26,13 @@ export function drawStoryReceipt(
     currency = 'USD',
     remixUrl = window.location.href,
   }: StoryReceiptDrawOptions
-): void {
+): Promise<void> {
   const width = 1080;
   const height = 1920;
+  const maxDisplayItems = Math.min(receipt.items.length, 5);
+  const productImages = await Promise.all(
+    receipt.items.slice(0, maxDisplayItems).map(({ product }) => loadReceiptImage(product.image))
+  );
 
   // 1. Background Parchment Color
   ctx.fillStyle = '#faf9f6';
@@ -87,7 +91,7 @@ export function drawStoryReceipt(
   cursorY += 68;
   ctx.fillStyle = '#1a1c1a';
   ctx.font = '900 48px "Bodoni Moda", "Times New Roman", serif';
-  ctx.fillText('FAKE SHOPPING', centerX, cursorY);
+  ctx.fillText('UNLIMITED SHOPPING', centerX, cursorY);
 
   cursorY += 40;
   ctx.fillStyle = '#ba0900';
@@ -173,7 +177,6 @@ export function drawStoryReceipt(
   cursorY += 25;
   // White panel for list
   const listStartY = cursorY;
-  const maxDisplayItems = Math.min(receipt.items.length, 5);
   const listHeight = maxDisplayItems * 72 + (receipt.items.length > 5 ? 54 : 30);
 
   ctx.fillStyle = '#ffffff';
@@ -186,13 +189,22 @@ export function drawStoryReceipt(
   let itemCursorY = listStartY + 48;
   for (let i = 0; i < maxDisplayItems; i++) {
     const item = receipt.items[i];
+    const productImage = productImages[i];
+    if (productImage) {
+      ctx.save();
+      roundRect(ctx, 150, itemCursorY - 38, 48, 48, 8);
+      ctx.clip();
+      ctx.drawImage(productImage, 150, itemCursorY - 38, 48, 48);
+      ctx.restore();
+    }
+
     ctx.textAlign = 'left';
     ctx.fillStyle = '#1a1c1a';
     ctx.font = '700 24px "Hanken Grotesk", sans-serif';
 
     const itemLabel = `${item.quantity}x ${item.product.title}`;
     // Truncate if too long
-    const maxTextWidth = 520;
+    const maxTextWidth = 430;
     let truncated = itemLabel;
     if (ctx.measureText(truncated).width > maxTextWidth) {
       while (ctx.measureText(truncated + '...').width > maxTextWidth && truncated.length > 0) {
@@ -200,7 +212,7 @@ export function drawStoryReceipt(
       }
       truncated += '...';
     }
-    ctx.fillText(truncated, 150, itemCursorY);
+    ctx.fillText(truncated, 215, itemCursorY);
 
     // MSRP sublabel
     ctx.fillStyle = '#ba0900';
@@ -294,6 +306,16 @@ function roundRect(
   ctx.closePath();
 }
 
+function loadReceiptImage(src: string): Promise<HTMLImageElement | null> {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
+    image.onload = () => resolve(image);
+    image.onerror = () => resolve(null);
+    image.src = src;
+  });
+}
+
 function drawBarcode(
   ctx: CanvasRenderingContext2D,
   centerX: number,
@@ -322,13 +344,13 @@ function drawBarcode(
 /**
  * Creates and renders an offscreen canvas of the story receipt, returning an HTMLCanvasElement.
  */
-export function createStoryReceiptCanvas(options: StoryReceiptDrawOptions): HTMLCanvasElement {
+export async function createStoryReceiptCanvas(options: StoryReceiptDrawOptions): Promise<HTMLCanvasElement> {
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
   canvas.height = 1920;
   const ctx = canvas.getContext('2d');
   if (ctx) {
-    drawStoryReceipt(ctx, options);
+    await drawStoryReceipt(ctx, options);
   }
   return canvas;
 }
@@ -339,7 +361,7 @@ export function createStoryReceiptCanvas(options: StoryReceiptDrawOptions): HTML
 export async function generateStoryReceiptBlob(
   options: StoryReceiptDrawOptions
 ): Promise<Blob> {
-  const canvas = createStoryReceiptCanvas(options);
+  const canvas = await createStoryReceiptCanvas(options);
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
       if (blob) {
@@ -358,7 +380,7 @@ export async function getStoryReceiptFile(
   options: StoryReceiptDrawOptions
 ): Promise<File> {
   const blob = await generateStoryReceiptBlob(options);
-  const filename = `fake-shopping-receipt-${options.receipt.orderNumber}.png`;
+  const filename = `unlimited-shopping-receipt-${options.receipt.orderNumber}.png`;
   return new File([blob], filename, { type: 'image/png' });
 }
 
@@ -372,7 +394,7 @@ export async function downloadStoryReceiptImage(
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `fake-shopping-story-receipt-${options.receipt.orderNumber}.png`;
+  a.download = `unlimited-shopping-story-receipt-${options.receipt.orderNumber}.png`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

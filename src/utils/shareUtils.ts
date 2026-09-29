@@ -49,7 +49,7 @@ export function buildChallengeCaption({
   const moreText = remainingCount > 0 ? `• +${remainingCount} more outrageous luxuries\n` : '';
 
   return `🛍️ "CAN YOU BEAT MY CART?" 🛍️
-I just blew ${formattedTotal} on Fake Shopping for exactly ${formattedReal} REAL.
+I just blew ${formattedTotal} on Unlimited Shopping for exactly ${formattedReal} REAL.
 
 Acquisitions:
 ${topItems.join('\n')}
@@ -73,7 +73,7 @@ export function buildTwitterChallengeText({
 }: Omit<ChallengeShareData, 'remixUrl'>): string {
   const formattedTotal = formatPrice(totalMsrp, currency);
   const topItem = items[0]?.product.title || 'pure luxury';
-  return `Can you beat my cart? I just spent ${formattedTotal} on Fake Shopping (featuring ${topItem}) for $0.00 REAL! Remix my cart & try to out-spend me:`;
+  return `Can you beat my cart? I just spent ${formattedTotal} on Unlimited Shopping (featuring ${topItem}) for $0.00 REAL! Remix my cart & try to out-spend me:`;
 }
 
 /**

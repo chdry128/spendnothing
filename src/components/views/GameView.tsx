@@ -346,8 +346,8 @@ export const GameView: React.FC = () => {
             onClick={() => {
               if (navigator.share) {
                 navigator.share({
-                  title: 'Fake Shopping 1v1 PvP',
-                  text: 'I just challenged @OverkillKing on Fake Shopping! Join the zero-dollar arena:',
+                  title: 'Unlimited Shopping 1v1 PvP',
+                  text: 'I just challenged @OverkillKing on Unlimited Shopping! Join the zero-dollar arena:',
                   url: window.location.href,
                 }).catch(() => {});
               } else {

@@ -188,10 +188,10 @@ export const PlayView: React.FC = () => {
 
       <section id="about" className="flex flex-col gap-2 border-t border-[#e4e2dc] pt-5">
         <h2 className="font-bodoni font-bold text-xl uppercase text-[#1a1c1a]">
-          About Fake Shopping
+          About Unlimited Shopping
         </h2>
         <p className="text-xs text-[#5d5c5b] leading-relaxed">
-          Fake Shopping is a free satirical shopping simulator for building impossible luxury carts. Every listing and price is fictional, so you can browse, compete, and share without a checkout or real-world purchase.
+          Unlimited Shopping is a free satirical shopping simulator for building impossible luxury carts. Every listing and price is fictional, so you can browse, compete, and share without a checkout or real-world purchase.
         </p>
         <p className="text-[11px] text-[#5d5c5b]">
           Catalog issue: September 2026. Last updated: September 26, 2026.
@@ -215,19 +215,19 @@ export const PlayView: React.FC = () => {
         </div>
       </section>
 
-      <section className="flex flex-col gap-3 border-t border-[#e4e2dc] pt-5" aria-label="Fake Shopping questions and answers">
+      <section className="flex flex-col gap-3 border-t border-[#e4e2dc] pt-5" aria-label="Unlimited Shopping questions and answers">
         <h2 className="font-bodoni font-bold text-xl uppercase text-[#1a1c1a]">
-          What Is Fake Shopping?
+          What Is Unlimited Shopping?
         </h2>
         <p className="text-xs text-[#5d5c5b] leading-relaxed">
-          Fake Shopping is a free fantasy-shopping game for consequence-free browsing. It turns impossible luxury objects into an imaginary cart so you can explore extravagant choices, compare fictional totals, and enjoy the drama of overspending without a checkout.
+          Unlimited Shopping is a free fantasy-shopping game for consequence-free browsing. It turns impossible luxury objects into an imaginary cart so you can explore extravagant choices, compare fictional totals, and enjoy the drama of overspending without a checkout.
         </p>
 
         <h2 className="font-bodoni font-bold text-xl uppercase text-[#1a1c1a]">
           Are the Purchases Real?
         </h2>
         <p className="text-xs text-[#5d5c5b] leading-relaxed">
-          No. Fake Shopping does not sell the listed products, collect payment, or create orders. Product names, specifications, prices, and reviews are fictional entertainment content, and your cart stays in this browser unless you choose to share it.
+          No. Unlimited Shopping does not sell the listed products, collect payment, or create orders. Product names, specifications, prices, and reviews are fictional entertainment content, and your cart stays in this browser unless you choose to share it.
         </p>
 
         <h2 className="font-bodoni font-bold text-xl uppercase text-[#1a1c1a]">
