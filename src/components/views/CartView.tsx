@@ -87,7 +87,7 @@ export const CartView: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-5 pt-2 pb-16 max-w-md mx-auto px-4">
+    <div className="flex flex-col gap-5 pt-2 pb-16 max-w-4xl mx-auto px-4 sm:px-6">
       {/* Official Audit Fantasy Ledger Header */}
       <section className="bg-white p-4 rounded-2xl border-2 border-[#1a1c1a] shadow-tactile flex flex-col gap-3 relative overflow-hidden">
         <div className="flex justify-between items-start">

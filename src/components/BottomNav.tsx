@@ -42,7 +42,7 @@ export const BottomNav: React.FC = () => {
 
   return (
     <nav aria-label="Primary navigation" className="fixed bottom-0 w-full z-40 bg-[#faf9f6]/95 backdrop-blur-xl border-t border-[#e4e2dc] shadow-[0_-2px_10px_rgba(0,0,0,0.04)]">
-      <div className="max-w-md mx-auto flex items-center justify-around h-16 px-2">
+      <div className="max-w-3xl mx-auto flex items-center justify-around h-16 px-2">
         {navItems.map((item) => {
           const isActive = activeTab === item.id || (item.id === 'cart' && activeTab === 'receipt');
 

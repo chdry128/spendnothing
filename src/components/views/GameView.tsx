@@ -56,7 +56,7 @@ export const GameView: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 pt-2 pb-20 max-w-md mx-auto px-4">
+    <div className="flex flex-col gap-6 pt-2 pb-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* 1. Hub Banner & Intro */}
       <section className="flex flex-col gap-2 pt-1">
         <div className="flex items-center gap-2">

@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className="fixed top-0 w-full z-40 bg-[#faf9f6]/90 backdrop-blur-xl border-b border-[#e4e2dc] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-      <div className="max-w-4xl mx-auto px-4 py-2 flex flex-col gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col gap-2">
         {/* Top line: Logo & Brand + Currency + Real Money $0 + Profile */}
         <div className="flex items-center justify-between">
           {/* Logo & Dropdown */}

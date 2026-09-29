@@ -35,7 +35,7 @@ export const PlayView: React.FC = () => {
   const displayedProducts = PRODUCTS.slice(0, productLimit);
 
   return (
-    <div className="flex flex-col gap-6 pt-2 pb-12 max-w-md mx-auto px-4">
+    <div className="flex flex-col gap-6 pt-2 pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Editorial Poster Hero Section */}
       <section className="flex flex-col gap-2 pt-1">
         <div className="flex items-center gap-2">
@@ -141,7 +141,7 @@ export const PlayView: React.FC = () => {
         </div>
 
         {/* Product List */}
-        <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {displayedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

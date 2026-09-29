@@ -47,7 +47,7 @@ export const RemixLandingView: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 pt-2 pb-24 max-w-md mx-auto px-4 animate-in fade-in">
+    <div className="flex flex-col gap-6 pt-2 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-in fade-in">
       {/* Challenge Alert Top Banner */}
       <section className="flex flex-col items-center text-center pt-1">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ffe8e4] text-[#ba0900] rounded-full border border-[#ba0900]/30 shadow-sm mb-2">

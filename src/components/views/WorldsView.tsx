@@ -51,7 +51,7 @@ export const WorldsView: React.FC = () => {
   });
 
   return (
-    <div className="flex flex-col gap-6 pt-1 pb-16 max-w-md mx-auto">
+    <div className="flex flex-col gap-6 pt-1 pb-16 max-w-7xl mx-auto">
       {/* Sticky Horizon Filter Ribbon */}
       <section className="sticky top-28 z-30 bg-[#faf9f6]/95 backdrop-blur-md pb-2 pt-1 border-b border-[#e4e2dc]/60">
         <div className="flex items-center justify-between px-4 mb-2">
@@ -170,7 +170,7 @@ export const WorldsView: React.FC = () => {
             </button>
           </div>
         ) : (
-          <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
