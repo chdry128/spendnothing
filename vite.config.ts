@@ -4,7 +4,7 @@ import path from 'path';
 import { defineConfig, Plugin } from 'vite';
 import productsData from './src/data/products.json';
 
-const defaultSiteUrl = 'http://localhost:3001';
+const defaultSiteUrl = 'https://unlimitedshopping.me';
 
 function getSiteUrl(): string {
   return (process.env.VITE_SITE_URL || process.env.APP_URL || defaultSiteUrl).replace(/\/$/, '');
